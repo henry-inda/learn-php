@@ -21,8 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Insert income data into the database
     try {
-        $query = "INSERT INTO Income (source, amount, date, details) VALUES (:source, :amount, :date, :details)";
+        // Modify the query to include the UserID column
+        $query = "INSERT INTO Income (UserID, source, amount, date, details) VALUES (:user_id, :source, :amount, :date, :details)";
         $stmt = $db_conn->prepare($query);
+        
+        // Bind the UserID value from the session
+        $stmt->bindParam(':user_id', $_SESSION['user_id']);
+        
         $stmt->bindParam(':source', $income_source);
         $stmt->bindParam(':amount', $income_amount);
         $stmt->bindParam(':date', $income_date);
@@ -30,13 +35,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute();
 
         // Redirect to the dashboard after successful income capture
-        header("Location: dashboard.php");
+        header("Location: index.php");
         exit;
     } catch (PDOException $e) {
         // Display error message if income capture fails
         $income_error = "Error: " . $e->getMessage();
     }
 }
+
 ?>
 
 <!DOCTYPE html>

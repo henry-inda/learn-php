@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2023 at 10:04 AM
+-- Generation Time: Jul 25, 2023 at 10:38 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -37,6 +37,13 @@ CREATE TABLE `expenditure` (
   `UserID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `expenditure`
+--
+
+INSERT INTO `expenditure` (`id`, `date`, `particulars`, `amount_spent`, `category`, `UserID`) VALUES
+(1, '2023-07-25', 'Paypal', '1000.00', 'Jumia', 5);
+
 -- --------------------------------------------------------
 
 --
@@ -49,6 +56,13 @@ CREATE TABLE `ex_category` (
   `amount` decimal(10,2) NOT NULL,
   `UserID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ex_category`
+--
+
+INSERT INTO `ex_category` (`id`, `description`, `amount`, `UserID`) VALUES
+(1, 'House hold', '10000.00', 5);
 
 -- --------------------------------------------------------
 
@@ -64,6 +78,14 @@ CREATE TABLE `income` (
   `details` text DEFAULT NULL,
   `UserID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `income`
+--
+
+INSERT INTO `income` (`Id`, `source`, `amount`, `date`, `details`, `UserID`) VALUES
+(2, 'Wash wash', '10000.00', '2023-07-25', 'Wash wash money', 5),
+(3, 'Wash wash', '10000.00', '2023-07-25', 'Wash wash money', 5);
 
 -- --------------------------------------------------------
 
@@ -85,7 +107,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`UserID`, `username`, `name`, `email`, `phone`, `password`) VALUES
-(3, 'Trial', 'Trial', 'trial@email.com', '0123456789', '$2y$10$LvPZ6zoxkunBccFDQlRO2uHyhDacVJFQML9mGN/g9rfSqnNYNMXEa');
+(3, 'Trial', 'Trial', 'trial@email.com', '0123456789', '$2y$10$LvPZ6zoxkunBccFDQlRO2uHyhDacVJFQML9mGN/g9rfSqnNYNMXEa'),
+(4, 'TrialUser', 'TrialUser', 'trialuser@email.com', '012345678', '$2y$10$ub82sUkjTJ7pf1X3Dxd2LujLBJ1vjjabAS79hSWGFkhxl.X033jrK'),
+(5, 'Trial2', 'Trial2', 'trial2@email.com', '01234567891', '$2y$10$sYYDIygExLNsxeJbt7rPpu3t76AkSWqgqKbde2neCuugT5uK6fsAK');
 
 --
 -- Indexes for dumped tables
@@ -126,25 +150,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `expenditure`
 --
 ALTER TABLE `expenditure`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `ex_category`
 --
 ALTER TABLE `ex_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `income`
 --
 ALTER TABLE `income`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
