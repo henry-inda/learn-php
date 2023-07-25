@@ -74,6 +74,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="text-danger mt-2"><?php echo $income_error; ?></div>
             <?php endif; ?>
         </form>
+        <h2>Navigation Links:</h2>
+        <ul>
+            <li><a href="index.php">Dashboard</a></li>
+            <li><a href="income_form.php">Capture Income</a></li>
+            <li><a href="expense_form.php">Capture Expenditure</a></li>
+            <li><a href="budget_form.php">Capture Budget</a></li>
+            <li><a href="reports.php">View Reports</a></li>
+            <li><a href="index.php?logout=true">Logout</a></li>
+        </ul>
     </div>
 
     <!-- Add your additional HTML content here -->
