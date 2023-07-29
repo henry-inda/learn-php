@@ -1,1 +1,1 @@
-##Personal Expense Tracking App
+Personal Expense Tracking App
